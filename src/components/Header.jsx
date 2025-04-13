@@ -1,12 +1,8 @@
-import { useMemo } from "react"
-// no hagas un render completo de la aplicacion hasta que cambien algo que yo te voy a decir que es
+import { useCart } from "../hooks/useCart"
 
 
-export default function Header ({cart, removeFromCart, increaseQuantity, decreaseQuantity, cleanCart})  {
+export default function Header ({cart, removeFromCart, increaseQuantity, decreaseQuantity, cleanCart, isEmpty, cartTotal})  {
 
-    //State Derivado
-    const isEmpty = useMemo ( () => cart.length == 0, [cart] )
-    const cartTotal = useMemo ( () => cart.reduce( (total, item) => total + (item.price * item.quantity), 0 ), [cart] )
     
   return (
     <header className="py-5 header">
